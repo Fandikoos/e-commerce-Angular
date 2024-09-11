@@ -1,0 +1,51 @@
+.card {
+    /*Flex organiza el cotenido interno de la tarjeta*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /*Esto asegura que todas las tarjetas ocupen el mismo alto en relación a su contenedor.*/
+    height: 100%;
+  }
+  
+.card-img-top {
+  object-fit: contain; /* Mantiene las imágenes dentro de un contenedor de 200px de alto, pero sin distorsionar la proporción original de la imagen */
+  height: 200px; /* Tamaño fijo de las imágenes */
+}
+
+.card-body {
+  /*Hace que el cuerpo de la tarjeta se expanda y ocupe todo el espacio disponible de la tarjeta, colocando el botón en la parte inferior.*/
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  margin-bottom: 15px;
+}
+
+.btn {
+  /* Alinea el botón "Ver Detalles" a la izquierda dentro del cuerpo de la tarjeta.*/
+  align-self: flex-start;
+}
+
+.col-md-3{
+  margin-top: 20px;
+}
+
+.product-container {
+  max-width: 100%;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.btn-info{
+  margin-left: 15px;
+}

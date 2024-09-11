@@ -1,1 +1,24 @@
-<p>product-detail works!</p>
+<!-- Contenedor principal -->
+<div class="container mt-4">
+    <!-- Si existe el product, lo pintamos gracias al ngIf -->
+    <div *ngIf="product" class="text-center">
+      <h2 class="mb-4">{{ product.title }}</h2>
+      
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <img [src]="product.image" alt="{{ product.title }}" class="img-fluid rounded mb-4">
+          
+          <p class="lead">{{ product.description }}</p>
+          <p class="h6">Categoria: {{ product.category }}</p>
+          <p class="h4"><strong>Precio: ${{ product.price }}</strong></p>
+          
+          <div>
+            <button class="btn btn-primary mt-3">Add to Cart</button>
+            <button class="btn btn-secondary mt-3" (click)="backHome()">Back</button>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+</div>

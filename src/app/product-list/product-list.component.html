@@ -1,1 +1,33 @@
-<p>product-list works!</p>
+<div class="container mt-4">
+    <div class="product-container">
+
+        <!-- Barra de búsqueda -->
+        <div class="row mb-3">
+            <div class="col-md-11">
+                <!--Binding bidireccional para que la informacion viaje desde el tempalte al ts y viceversa-->
+                <input type="text" class="form-control" placeholder="Buscar productos" [(ngModel)]="searchQueryProduct"/>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-info" (click)="searchProductsByName()">Search</button>
+            </div>
+        </div>
+        
+            
+        
+        <!-- Lista de productos -->
+        <div class="row">
+            <div class="col-md-3" *ngFor="let product of filteredProducts">
+                <div class="card mb-4">
+                    <img [src]="product.image" class="card-img-top" alt="{{ product.title }}">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ product.title }}</h5>
+                    <p class="card-text"><strong>${{ product.price }}</strong></p>
+                    <!--Router link para acceder al detail, en este caso primero la /product y lo concatenemos con el id de ese producto en cuestion-->
+                    <a class="btn btn-primary" [routerLink]="['/product', product.id]" >Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>    
+</div>

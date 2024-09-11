@@ -1,0 +1,13 @@
+.container {
+    max-width: 800px;
+  }
+  
+  img {
+    max-height: 400px; /* Ajustamos la altura máxima de la imagen */
+    object-fit: cover; /* Ajustamos la imagen para cubrir el área sin deformarla */
+  }
+  
+  button {
+    font-size: 1.1rem; /* Tamaño de fuente del botón */
+    margin: 15px;
+  }

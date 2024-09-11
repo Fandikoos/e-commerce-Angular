@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }, // Página de inicio
@@ -36,7 +37,8 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
