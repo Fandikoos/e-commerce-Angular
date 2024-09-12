@@ -13,12 +13,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AddProductComponent } from './add-product/add-product.component';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }, // Página de inicio
   { path: 'products', component: ProductListComponent }, // Lista de productos
   { path: 'product/:id', component: ProductDetailComponent }, // Detalle de producto
   { path: 'profile', component: ProfileComponent }, // Perfil de usuario
+  { path: 'add-product', component: AddProductComponent }, // Añadir un producto
   { path: '**', component: ErrorComponent } // Página de error para rutas no encontradas
 ];
 
@@ -31,14 +35,16 @@ const routes: Routes = [
     HomeComponent,
     ErrorComponent,
     HeaderComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [
     provideClientHydration(),
@@ -46,4 +52,8 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary){
+    library.addIcons(faPlusCircle);
+  }
+ }

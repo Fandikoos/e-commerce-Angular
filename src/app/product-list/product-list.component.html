@@ -1,6 +1,14 @@
 <div class="container mt-4">
     <div class="product-container">
 
+        <!-- Botón para añadir un nuevo producto -->
+        <div class="text-right mb-4">
+            <!-- Botón para agregar un producto -->
+            <a class="btn btn-success" [routerLink]="['/add-product']">
+              <fa-icon [icon]="['fas', 'plus-circle']"></fa-icon> Add Product
+            </a>
+        </div>
+
         <!-- Barra de búsqueda -->
         <div class="row mb-3">
             <div class="col-md-11">
@@ -11,7 +19,23 @@
                 <button class="btn btn-info" (click)="searchProductsByName()">Search</button>
             </div>
         </div>
-        
+
+        <h5 class="categoriesTitle">Products Categories</h5>
+
+        <!-- Filtro de categorías -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+            <!--Directiva change, se utiliza para que cuando haya cambios en el dom, en este caso este selector deplegable
+            al ir cambiando de valoers pues se actualiza el resultado en funcion del valor del selector-->
+            <select class="form-control" [(ngModel)]="selectedCategory" (change)="getProductsByCategorie()">
+                <!--Estas option son las cosas que saldra en el desplegable, la primera all categories que refleja todos los productos-->
+                <option value="">All Categories</option>
+                <!--A traves de un ngFor recorremos categorias del ts y asignamos cada valor de una categoria a un desplegable para así completar todos-->
+                <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select>
+            </div>
+        </div>
+            
             
         
         <!-- Lista de productos -->
@@ -22,6 +46,10 @@
                     <div class="card-body">
                     <h5 class="card-title">{{ product.title }}</h5>
                     <p class="card-text"><strong>${{ product.price }}</strong></p>
+                    <p class="card-text">
+                        <!--Cosa curiosa como rating es una tributo no necesario (?) hay que poner el interrogante aqui tambien como en el model-->
+                        <strong>Rating: {{ product.rating?.rate }} ({{ product.rating?.count }} reviews)</strong>
+                    </p>
                     <!--Router link para acceder al detail, en este caso primero la /product y lo concatenemos con el id de ese producto en cuestion-->
                     <a class="btn btn-primary" [routerLink]="['/product', product.id]" >Details</a>
                     </div>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Product } from './model/product.model';
 
 @Injectable({
@@ -9,6 +9,8 @@ import { Product } from './model/product.model';
 export class ProductService {
 
   private apiUrl = 'https://fakestoreapi.com/products';
+  private productsUpdated = new Subject<void>();
+
 
   constructor(private httpService:HttpClient) { }
 
@@ -24,5 +26,19 @@ export class ProductService {
     return this.httpService.get<Product>(`${this.apiUrl}/${id}`);
   }
 
+  //Metodo para obtener todas las categorias de los productos
+  getCategories(): Observable<string[]>{
+    return this.httpService.get<string[]>(this.apiUrl + "/categories");
+  }
+
+  //Metodo para obtener productos segun su categoria
+  getProductsByCategorie(category:string): Observable<Product[]>{
+    return this.httpService.get<Product[]>(`${this.apiUrl}/category/${category}`);
+  }
+
+   // Añadir un nuevo producto
+   addProduct(product: Product): Observable<Product> {
+    return this.httpService.post<Product>(this.apiUrl, product);
+  }
   
 }

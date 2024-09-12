@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <h2>Añadir nuevo producto</h2>
+    <!--ngSubmit es un evento de Angular que se dispara cuando se envía el formulario y se llama al metodo onSubmit()-->
+    <!--Esto permite que pueda acceder a la instancia del formulario y sus estados en el template-->
+    <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+      <div class="form-group">
+        <label for="title">Título del producto</label>
+        <input type="text" id="title" class="form-control" [(ngModel)]="newProduct.title" name="title" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Precio</label>
+        <input type="number" id="price" class="form-control" [(ngModel)]="newProduct.price" name="price" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <textarea id="description" class="form-control" [(ngModel)]="newProduct.description" name="description" required></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="category">Categoría</label>
+        <input type="text" id="category" class="form-control" [(ngModel)]="newProduct.category" name="category" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="image">URL de la imagen</label>
+        <input type="text" id="image" class="form-control" [(ngModel)]="newProduct.image" name="image" required />
+      </div>
+  
+      <!-- 
+        El atributo disabled del botón está vinculado a la validez del formulario. productForm.form.valid 
+        es una propiedad que indica si el formulario es válido. Si el formulario no es válido, productForm.form.valid será false,
+        y el botón estará deshabilitado (disabled).
+        Esto previene que se envíe el formulario si hay errores de validación en los campos
+      -->
+      <button type="submit" class="btn btn-primary mt-3" [disabled]="!productForm.form.valid">Add product</button>
+    </form>
+  </div>
+  

@@ -49,3 +49,21 @@
 .btn-info{
   margin-left: 15px;
 }
+
+.categoriesTitle{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 3px;
+}
+
+.btn-success {
+  font-size: 1.2rem;
+  padding: 10px 15px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+}
+
+fa-icon {
+  margin-right: 8px;
+}

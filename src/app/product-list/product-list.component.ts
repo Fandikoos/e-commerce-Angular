@@ -17,11 +17,17 @@ export class ProductListComponent implements OnInit{
   filteredProducts:Product[] = [];
   searchQueryProduct:string="";
 
+  //Array para almacenar los nombres de las categorias de los productos
+  categories:string[]=[];
+  selectedCategory:string="";
+
   constructor (private productService: ProductService){}
 
   // Cuando se inicia el componente cargan todos los productos
   ngOnInit(): void {
     this.getAllProducts();
+    console.log(this.products);
+    this.getCategories();
   }
 
   getAllProducts(): void{
@@ -55,6 +61,33 @@ export class ProductListComponent implements OnInit{
       console.log(this.filteredProducts);
     }
 
+  }
+
+  getCategories():void{
+    this.productService.getCategories().subscribe(
+      (response:string[]) => {
+        this.categories = response;
+        //console.log(this.categories);
+      },
+      (error) => {
+        console.log("Error obteniendo categorias: ", error);
+      }
+    );
+  }
+
+  getProductsByCategorie(): void{
+    if(this.selectedCategory===""){
+      this.filteredProducts=this.products;
+    } else{
+      this.productService.getProductsByCategorie(this.selectedCategory).subscribe(
+        (response:Product[]) => {
+          this.filteredProducts = response
+        },
+        (error) => {
+          console.log("Error filtrando productos: ", error);
+        }
+      );
+    }
   }
 
 

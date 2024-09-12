@@ -1,3 +1,49 @@
-.navbar{
-    margin-left: 20px;
+
+header {
+display: flex;
+align-items: center; /* Centra verticalmente los elementos dentro del header */
+justify-content: space-between; /* Alinea los elementos al principio y al final */
+width: 100%;
+background-color: #f8f9fa; /* Fondo gris claro */
+border-bottom: 1px solid #dee2e6; /* Línea inferior más sutil */
+padding: 5%;
+}
+
+.header-logo {
+color: #007bff; /* Color de texto para el nombre de la tienda */
+font-weight: bold;
+display: flex;
+align-items: center; /* Centra verticalmente el logo y el texto */
+}
+
+.header-logo .logo {
+width: 60px;
+height: 60px;
+margin-right: 10px; /* Espaciado entre el icono y el nombre */
+}
+
+.nav {
+display: flex; /* Asegura que los elementos de la lista estén en una fila */
+align-items: center; /* Centra verticalmente los ítems de navegación */
+padding: 0;
+margin: 0;
+}
+
+.nav-item {
+margin: 0 10px; /* Espacio entre los ítems de navegación */
+}
+
+.nav-link {
+color: #495057; /* Color del texto del enlace */
+}
+
+.nav-link.active {
+background-color: #007bff; /* Fondo azul para el enlace activo */
+color: white; /* Color del texto para el enlace activo */
+border-radius: 0.25rem; /* Bordes redondeados */
+}
+
+.nav-link:hover {
+background-color: #e9ecef; /* Fondo claro al pasar el ratón */
+color: #007bff; /* Color del texto al pasar el ratón */
 }
