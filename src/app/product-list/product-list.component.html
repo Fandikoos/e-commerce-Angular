@@ -13,7 +13,7 @@
         <div class="row mb-3">
             <div class="col-md-11">
                 <!--Binding bidireccional para que la informacion viaje desde el tempalte al ts y viceversa-->
-                <input type="text" class="form-control" placeholder="Buscar productos" [(ngModel)]="searchQueryProduct"/>
+                <input type="text" class="form-control" placeholder="Search products..." [(ngModel)]="searchQueryProduct"/>
             </div>
             <div class="col-md-1">
                 <button class="btn btn-info" (click)="searchProductsByName()">Search</button>
@@ -50,8 +50,11 @@
                         <!--Cosa curiosa como rating es una tributo no necesario (?) hay que poner el interrogante aqui tambien como en el model-->
                         <strong>Rating: {{ product.rating?.rate }} ({{ product.rating?.count }} reviews)</strong>
                     </p>
-                    <!--Router link para acceder al detail, en este caso primero la /product y lo concatenemos con el id de ese producto en cuestion-->
-                    <a class="btn btn-primary" [routerLink]="['/product', product.id]" >Details</a>
+                    <div class="buttons">
+                        <!--Router link para acceder al detail, en este caso primero la /product y lo concatenemos con el id de ese producto en cuestion-->
+                        <a class="btn btn-primary" [routerLink]="['/product', product.id]" >Details</a>
+                        <a class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</a>
+                    </div>
                     </div>
                 </div>
             </div>

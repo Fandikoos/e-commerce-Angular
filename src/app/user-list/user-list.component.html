@@ -1,0 +1,29 @@
+<h2>User List</h2>
+
+<table class="table table-striped custom-table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{ user.id }}</th>
+        <td>{{ user.name.firstname }}</td>
+        <td>{{ user.name.lastname }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>
+            <div class="buttons">
+                <a class="btn btn-info btn-info" [routerLink]="['/user', user.id]">Details</a>
+                <a class="btn btn-info btn-danger" (click)="deleteUser(user.id)">Delete</a>
+            </div>  
+        </td>
+      </tr>
+    </tbody>
+</table>

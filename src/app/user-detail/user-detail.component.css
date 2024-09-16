@@ -1,0 +1,49 @@
+.user-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+  border-bottom: none;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-body p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.card-body .row {
+  margin-bottom: 15px;
+}
+
+.card-body .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}

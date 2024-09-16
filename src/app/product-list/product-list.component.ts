@@ -90,6 +90,25 @@ export class ProductListComponent implements OnInit{
     }
   }
 
+  deleteProduct(productId: any): void {
+    //Mensaje de confirmacion en la web, si pulsamos sobre aceptar se vuelve true y se ejecuta el codigo
+    if (confirm('Are you sure that you want to delete this product?')) {
+      this.productService.deleteProduct(productId).subscribe(
+        () => {
+          console.log(`Producto con el id: ${productId} eliminado correctamente`);
+          
+          // Filtramos la lista eliminando solo el producto con el id que coincida
+          this.filteredProducts = this.filteredProducts.filter(product => product.id !== productId);
+
+          console.log(this.filteredProducts);
+        },
+        (error) => {
+          console.error('Error al borrar este producto', error);
+        }
+      );
+    }
+  }
+
 
   
 }

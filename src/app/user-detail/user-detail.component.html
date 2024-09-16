@@ -1,0 +1,63 @@
+<div class="container user-detail-container mt-4">
+  <div class="card">
+    <div class="card-header text-center">
+      <h2>User Details</h2>
+    </div>
+    <div class="card-body">
+
+      <!--Datos personales-->
+      <h5 class="section-title">Personal Details</h5>
+
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>First Name:</strong> {{ user.name.firstname }}</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Last Name:</strong> {{ user.name.lastname }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Username:</strong> {{ user.username }}</p>
+        </div>
+      </div>
+
+      <!--Datos de contacto-->
+      <h5 class="section-title">Contact Details</h5>
+
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Email:</strong> {{ user.email }}</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Phone:</strong> {{ user.phone }}</p>
+        </div>
+      </div>
+
+      <!--Datos de direccion-->
+      <h5 class="section-title">Address</h5>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p><strong>City:</strong> {{ user.address?.city }}</p>
+        </div>
+        <div class="col-md-3">
+          <p><strong>Street:</strong> {{ user.address?.city }}</p>
+        </div>
+        <div class="col-md-3">
+          <p><strong>Number:</strong> {{ user.address?.number }}</p>
+        </div>
+        <div class="col-md-3">
+          <p><strong>Zipcode:</strong> {{ user.address?.zipcode }} </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 text-center mt-4">
+          <a class="btn btn-primary" (click)="backUserPage()">Back to Users</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

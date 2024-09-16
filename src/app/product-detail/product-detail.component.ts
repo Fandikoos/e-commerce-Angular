@@ -18,7 +18,8 @@ export class ProductDetailComponent implements OnInit{
   ngOnInit(): void {
     // Convertir el ID a número ya que la url es una cadena de texto y cogerlo de la url
     const productId = Number(this.route.snapshot.paramMap.get('id')); 
-    this.productService.getProductById(productId).subscribe(product => {
+    this.productService.getProductById(productId).subscribe(
+      product => {
       this.product = product;
     }, error => {
       console.error("Error al obtener e producto: ", error);

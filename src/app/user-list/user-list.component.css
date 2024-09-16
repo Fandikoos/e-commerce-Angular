@@ -1,0 +1,56 @@
+h2{
+    text-decoration: underline;
+    text-align: center;
+    margin: 15px;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing:2px ; /* Añade espacio entre filas */
+  }
+  
+  .custom-table thead th {
+    font-weight: bold;
+    background-color: #f8f9fa; /* Color de fondo del encabezado */
+    text-align: center;
+    padding: 10px 15px; /* Espacio alrededor del texto */
+  }
+  
+  .custom-table tbody td, .custom-table tbody th {
+    padding: 10px 15px;
+    text-align: center; /* Centra el texto en las celdas */
+    vertical-align: middle; /* Alinea el contenido verticalmente en el centro */
+  }
+  
+  .custom-table tbody tr {
+    background-color: #ffffff; /* Color de fondo de las filas */
+    transition: background-color 0.3s; /* Efecto de transición al pasar el ratón */
+  }
+  
+  .custom-table tbody tr:hover {
+    background-color: #f1f1f1; /* Color al hacer hover en la fila */
+  }
+  
+  .custom-table .btn-details {
+    font-size: 0.9rem;
+  }
+  
+  .custom-table tbody th {
+    width: 150px; /* Ajusta el ancho de la columna ID */
+  }
+  
+  .custom-table thead th:nth-child(2),
+  .custom-table thead th:nth-child(3) {
+    width: 350px; /* Aumenta el ancho de las columnas First y Last */
+  }
+  
+  .custom-table thead th:nth-child(4),
+  .custom-table thead th:nth-child(5) {
+    width: 350px; /* Aumenta el ancho de las columnas Email y Phone */
+  }
+
+  .buttons{
+    display: flex;
+    justify-content: space-evenly;
+  }

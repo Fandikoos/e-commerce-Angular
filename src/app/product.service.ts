@@ -9,8 +9,6 @@ import { Product } from './model/product.model';
 export class ProductService {
 
   private apiUrl = 'https://fakestoreapi.com/products';
-  private productsUpdated = new Subject<void>();
-
 
   constructor(private httpService:HttpClient) { }
 
@@ -39,6 +37,11 @@ export class ProductService {
    // Añadir un nuevo producto
    addProduct(product: Product): Observable<Product> {
     return this.httpService.post<Product>(this.apiUrl, product);
+  }
+
+  //Eliminar un producto
+  deleteProduct(productId:number): Observable<any>{
+    return this.httpService.delete(`${this.apiUrl}/${productId}`);
   }
   
 }
