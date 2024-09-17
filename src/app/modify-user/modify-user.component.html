@@ -1,0 +1,72 @@
+<div class="container user-edit-container mt-4">
+    <div class="card" *ngIf="user">
+      <div class="card-header text-center">
+        <h2>Edit User</h2>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #editUserForm="ngForm">
+  
+          <!-- Personal Details -->
+          <h5>Personal Details</h5>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="firstname">First Name</label>
+              <input type="text" id="firstname" class="form-control" [(ngModel)]="user.name.firstname" name="firstname" required />
+            </div>
+            <div class="col-md-6">
+              <label for="lastname">Last Name</label>
+              <input type="text" id="lastname" class="form-control" [(ngModel)]="user.name.lastname" name="lastname" required />
+            </div>
+          </div>
+  
+          <!-- Contact Details -->
+          <h5>Contact Details</h5>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" [(ngModel)]="user.email" name="email" required />
+            </div>
+            <div class="col-md-6">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" class="form-control" [(ngModel)]="user.phone" name="phone" required />
+            </div>
+          </div>
+
+          <!-- Address-->
+          <h5>Address</h5>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="city">City</label>
+              <input type="text" id="city" class="form-control" [(ngModel)]="user.address.city" name="city" />
+            </div>
+            <div class="col-md-6">
+              <label for="zipcode">Zip Code</label>
+              <input type="text" id="zipcode" class="form-control" [(ngModel)]="user.address.zipcode" name="zipcode" />
+            </div>
+          </div>
+  
+          <!-- Address, un error aqui curioso es que angular no permite el binding bidireccional de acceso con el ?, por ello primero 
+           hay que inicializar en el ts las propiedades del user como se ve en el archivo 
+          <h5>Address</h5>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="city">City</label>
+              <input type="text" id="city" class="form-control" [(ngModel)]="user.address?.city" name="city" />
+            </div>
+            <div class="col-md-6">
+              <label for="zipcode">Zip Code</label>
+              <input type="text" id="zipcode" class="form-control" [(ngModel)]="user.address?.zipcode" name="zipcode" />
+            </div>
+          </div>-->
+  
+          <!-- Submit Button -->
+          <div class="row mt-4">
+            <div class="col-md-12 text-center">
+              <button type="submit" class="btn btn-primary" [disabled]="!editUserForm.form.valid">Save Changes</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

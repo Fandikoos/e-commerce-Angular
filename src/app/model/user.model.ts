@@ -1,5 +1,5 @@
 export interface User {
-    address?: {
+    address: {
         geolocation?: {
             lat?: number;
             long?: number;
@@ -9,7 +9,7 @@ export interface User {
         number: number;
         zipcode: any;
     },
-    id?: number;
+    id?: number|any;
     email: string;
     username?: string;
     password?: string;

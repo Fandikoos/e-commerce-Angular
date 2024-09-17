@@ -1,4 +1,48 @@
-.grid{
-    display: flex;
-    justify-content: space-evenly;
-}
+/* Hover effect: agrandar ligeramente la tarjeta y aplicar sombra */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Opcional: Efecto sobre los botones en hover */
+  .card .btn {
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .card .btn:hover {
+    transform: translateY(-3px);
+    background-color: #0056b3; /* Un color más oscuro para el hover */
+  }
+  
+  /* Opcional: Efecto de cambio en el título */
+  .card-title {
+    transition: color 0.3s;
+  }
+  
+  .card:hover .card-title {
+    color: #007bff; /* Cambia el color del título al hacer hover en la tarjeta */
+  }
+
+  .card-custom {
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega sombra para más profundidad */
+    transition: transform 0.3s;
+  }
+  
+  .card-custom:hover {
+    transform: scale(1.05); /* Efecto hover para ampliar ligeramente */
+  }
+  
+  /* Hacemos que las imágenes ocupen el mismo tamaño */
+  .img-custom {
+    width: 100%;
+    height: 500px; /* Tamaño uniforme para todas las imágenes */
+    object-fit: cover; /* Asegura que las imágenes no se deformen */
+  }
+

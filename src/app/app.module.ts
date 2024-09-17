@@ -17,6 +17,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductService } from './product.service';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { ModifyUserComponent } from './modify-user/modify-user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }, // Página de inicio
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'add-product', component: AddProductComponent }, // Añadir un producto
   { path: 'users', component: UserListComponent }, // Lista de usuarios
   { path: 'user/:id', component: UserDetailComponent }, // Detalle de usuario
+  { path: 'user/put/:id', component: ModifyUserComponent }, // Modificar un usuario
   { path: '**', component: ErrorComponent } // Página de error para rutas no encontradas
 ];
 
@@ -39,7 +41,8 @@ const routes: Routes = [
     HeaderComponent,
     AddProductComponent,
     UserListComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    ModifyUserComponent
   ],
   imports: [
     BrowserModule,

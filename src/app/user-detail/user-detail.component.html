@@ -40,22 +40,25 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p><strong>City:</strong> {{ user.address?.city }}</p>
+          <p><strong>City:</strong> {{ user.address.city }}</p>
         </div>
         <div class="col-md-3">
-          <p><strong>Street:</strong> {{ user.address?.city }}</p>
+          <p><strong>Street:</strong> {{ user.address.city }}</p>
         </div>
         <div class="col-md-3">
-          <p><strong>Number:</strong> {{ user.address?.number }}</p>
+          <p><strong>Number:</strong> {{ user.address.number }}</p>
         </div>
         <div class="col-md-3">
-          <p><strong>Zipcode:</strong> {{ user.address?.zipcode }} </p>
+          <p><strong>Zipcode:</strong> {{ user.address.zipcode }} </p>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-12 text-center mt-4">
+        <div class="col-md-6 text-center mt-4">
           <a class="btn btn-primary" (click)="backUserPage()">Back to Users</a>
+        </div>
+        <div class="col-md-6 text-center mt-4">
+          <a class="btn btn-secondary" [routerLink]="['/user/put', user.id]">Modify</a>
         </div>
       </div>
     </div>

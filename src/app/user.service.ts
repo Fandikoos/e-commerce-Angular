@@ -24,4 +24,10 @@ export class UserService {
   deleteUser(userId:number): Observable<any>{
     return this.httpService.delete(`${this.apiUrl}/${userId}`);
   }
+
+  // Modificar usuario, por parametros recibira el id y un usuario,
+  // El observable emitira un User y luego tenemos que pasarle la url de la api y el body, en este caso el user.
+  modifyUser(userId:number, user:User): Observable<User>{
+    return this.httpService.put<User>(`${this.apiUrl}/${userId}`, user);
+  }
 }
