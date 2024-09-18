@@ -9,7 +9,7 @@ import { ErrorComponent } from './error/error.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { AddProductComponent } from './add-product/add-product.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
@@ -18,15 +18,18 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductService } from './product.service';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ModifyUserComponent } from './modify-user/modify-user.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }, // Página de inicio
+  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Página de inicio (login)
+  { path: 'home', component: HomeComponent }, // Pagina de home
   { path: 'products', component: ProductListComponent }, // Lista de productos
   { path: 'product/:id', component: ProductDetailComponent }, // Detalle de producto
   { path: 'add-product', component: AddProductComponent }, // Añadir un producto
   { path: 'users', component: UserListComponent }, // Lista de usuarios
   { path: 'user/:id', component: UserDetailComponent }, // Detalle de usuario
   { path: 'user/put/:id', component: ModifyUserComponent }, // Modificar un usuario
+  { path: 'login', component: LoginComponent }, // Inicio de sesion
   { path: '**', component: ErrorComponent } // Página de error para rutas no encontradas
 ];
 
@@ -42,7 +45,8 @@ const routes: Routes = [
     AddProductComponent,
     UserListComponent,
     UserDetailComponent,
-    ModifyUserComponent
+    ModifyUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,7 @@ const routes: Routes = [
   ],
   providers: [
     provideClientHydration(),
-    ProductService
+    ProductService,
   ],
   bootstrap: [AppComponent]
 })
