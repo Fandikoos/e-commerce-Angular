@@ -40,24 +40,34 @@
         
         <!-- Lista de productos -->
         <div class="row">
-            <div class="col-md-3" *ngFor="let product of filteredProducts">
-                <div class="card mb-4">
-                    <img [src]="product.image" class="card-img-top" alt="{{ product.title }}">
-                    <div class="card-body">
-                    <h5 class="card-title">{{ product.title }}</h5>
-                    <p class="card-text"><strong>${{ product.price }}</strong></p>
-                    <p class="card-text">
-                        <!--Cosa curiosa como rating es una tributo no necesario (?) hay que poner el interrogante aqui tambien como en el model-->
-                        <strong>Rating: {{ product.rating?.rate }} ({{ product.rating?.count }} reviews)</strong>
-                    </p>
-                    <div class="buttons">
-                        <!--Router link para acceder al detail, en este caso primero la /product y lo concatenemos con el id de ese producto en cuestion-->
-                        <a class="btn btn-primary" [routerLink]="['/product', product.id]" >Details</a>
-                        <a class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</a>
-                    </div>
+        <!--NUEVO NGIF, LA VENTAJA ES QUE TE PERMITE JUNTAR VARIAS DIRECTIVAS YA QUE ANTES NO SE PODIAN JUNTAR DOS DIRECTIVAS
+        EN EL MISMO SITIO-->
+        @if (true) {
+            <!--NUEVO NG FOR, IGUAL QUE EL ANTERIOR PERO LO DEL TRACK INDICA DESDE DONDE HAY QUE EMPEZAR Y COMO RECORRERLO
+            EN ESTE CASO DESDE EL INDICE-->
+            @for (product of filteredProducts; track $index) {
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img [src]="product.image" class="card-img-top" alt="{{ product.title }}">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text"><strong>${{ product.price }}</strong></p>
+                        <p class="card-text">
+                            <!--Cosa curiosa como rating es una tributo no necesario (?) hay que poner el interrogante aqui tambien como en el model-->
+                            <strong>Rating: {{ product.rating?.rate }} ({{ product.rating?.count }} reviews)</strong>
+                        </p>
+                        <div class="buttons">
+                            <!--Router link para acceder al detail, en este caso primero la /product y lo concatenemos con el id de ese producto en cuestion-->
+                            <a class="btn btn-primary" [routerLink]="['/product', product.id]" >Details</a>
+                            <a class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</a>
+                        </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
+        }
+            
+
         </div>
 
     </div>    

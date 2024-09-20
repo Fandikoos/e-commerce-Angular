@@ -18,28 +18,29 @@ export class LoginService {
       password: password
     };
 
-    return this.httpService.post(this.apiUrl, loginData, {
-      headers: { 'xsrfHeaderName': ''}
-    });
+    return this.httpService.post(this.apiUrl, loginData);
   }
 
-  //Metodo para almacenar el token
-  setToken(token: string): void{
-    localStorage.setItem('authToken', token);
+  setToken(token:string){
+    localStorage.setItem('authToken', token); //Almacenamos el token en la localStorage
   }
 
-  //Metodo para coger el token
   getToken(): string | null {
-    return localStorage.getItem('authToken');
+    return localStorage.getItem('authToken'); //Obtenemos el token
   }
 
-  //Metodo para eliminar el token al cerrar sesion
-  logout(): void{
-    localStorage.removeItem('authToken');
+  isAuthenticated(): boolean {
+    const token = this.getToken();
+    console.log('token actual: ' + token);
+    return !!token; //Verificamos si el token existe
   }
 
-  //Metodo booleano para saber si hay token (si hay alguien registrado)
-  isLoggedIn(): boolean {
-    return !!this.getToken();
+  removeToken(){
+    localStorage.clear();
   }
+
+
+
+  
+  
 }

@@ -1,2 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+/* Importando Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Puedes agregar tus propios estilos personalizados a continuación si es necesario */

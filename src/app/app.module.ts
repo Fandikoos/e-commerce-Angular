@@ -19,16 +19,20 @@ import { ProductService } from './product.service';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ModifyUserComponent } from './modify-user/modify-user.component';
 import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login/login-guard';
+import { UserService } from './user.service';
+import { LoginService } from './login.service';
 
+// El authGuard indica que son rutas protegidas para las que tienes que iniciar sesion previamente
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Página de inicio (login)
-  { path: 'home', component: HomeComponent }, // Pagina de home
-  { path: 'products', component: ProductListComponent }, // Lista de productos
-  { path: 'product/:id', component: ProductDetailComponent }, // Detalle de producto
-  { path: 'add-product', component: AddProductComponent }, // Añadir un producto
-  { path: 'users', component: UserListComponent }, // Lista de usuarios
-  { path: 'user/:id', component: UserDetailComponent }, // Detalle de usuario
-  { path: 'user/put/:id', component: ModifyUserComponent }, // Modificar un usuario
+  { path: 'home', component: HomeComponent}, // Pagina de home
+  { path: 'products', component: ProductListComponent, canActivate: [LoginGuard] }, // Lista de productos
+  { path: 'product/:id', component: ProductDetailComponent, canActivate: [LoginGuard] }, // Detalle de producto
+  { path: 'add-product', component: AddProductComponent, canActivate: [LoginGuard] }, // Añadir un producto
+  { path: 'users', component: UserListComponent, canActivate: [LoginGuard] }, // Lista de usuarios
+  { path: 'user/:id', component: UserDetailComponent, canActivate: [LoginGuard] }, // Detalle de usuario
+  { path: 'user/put/:id', component: ModifyUserComponent, canActivate: [LoginGuard] }, // Modificar un usuario
   { path: 'login', component: LoginComponent }, // Inicio de sesion
   { path: '**', component: ErrorComponent } // Página de error para rutas no encontradas
 ];
@@ -59,8 +63,11 @@ const routes: Routes = [
   providers: [
     provideClientHydration(),
     ProductService,
+    UserService,
+    LoginService,
+    LoginGuard
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(library: FaIconLibrary){
