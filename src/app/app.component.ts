@@ -13,4 +13,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     localStorage.clear();
   }
+
+  isAuthenticated(){
+    this.loginService.isAuthenticated();
+  }
 }

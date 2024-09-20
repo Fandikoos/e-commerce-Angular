@@ -1,3 +1,6 @@
 <!--Con un ngIf verificamos si hay usuario para mostrar el header de la aplicacion-->
-<app-header></app-header>
+<app-header *ngIf="!isAuthenticated"></app-header>
 <router-outlet></router-outlet>
+
+
+

@@ -26,7 +26,7 @@ import { LoginService } from './login.service';
 // El authGuard indica que son rutas protegidas para las que tienes que iniciar sesion previamente
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Página de inicio (login)
-  { path: 'home', component: HomeComponent}, // Pagina de home
+  { path: 'home', component: HomeComponent, canActivate: [LoginGuard]}, // Pagina de home
   { path: 'products', component: ProductListComponent, canActivate: [LoginGuard] }, // Lista de productos
   { path: 'product/:id', component: ProductDetailComponent, canActivate: [LoginGuard] }, // Detalle de producto
   { path: 'add-product', component: AddProductComponent, canActivate: [LoginGuard] }, // Añadir un producto
